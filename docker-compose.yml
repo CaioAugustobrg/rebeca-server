@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  rebbeca:
+    image: postgres
+    restart: always
+    volumes:
+      - rebbeca:/var/lib/postgresql/rebecca  # Aqui substituímos o nome do volume
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    ports:
+      - "5436:5432"
+
+volumes:
+  rebbeca:  # Definindo o volume 'rebbeca'
