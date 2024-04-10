@@ -8,7 +8,7 @@ import bodyParser from 'body-parser'
 // import { setupExpressSession } from './express-session'
 const app = express()
 app.use(cors({
-    origin: 'http://localhost:5173', // Altere para a URL do seu front-end
+    origin: 'https://rebbeca-birthday.vercel.app/', // Altere para a URL do seu front-end
     credentials: true // Permitir credenciais
   }));
 app.use(express.json())
