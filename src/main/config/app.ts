@@ -13,7 +13,26 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://rebbeca-birthday.vercel.app"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "https://rebbeca-birthday.vercel.app"
+  );
+  res.header(
+    "Access-Control-Allow-Origin",
+    "X-Requested-With, Content-Type, Authorization"
+  );
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET,PUT,PATCH,POST,DELETE,OPTIONS"
+  );
 
+  next();
+});
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser('keyboard cat'));
