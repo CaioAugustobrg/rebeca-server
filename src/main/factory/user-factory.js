@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.userController = void 0;
+const create_user_1 = require("../../domain/usecases/create-user/create-user");
+const prisma_user_repository_1 = require("../../external/repositories/prisma/prisma-user-repository");
+const user_controller_1 = require("../../presentation/controllers/user-controller");
+const prismaTruckRepository = new prisma_user_repository_1.PrismaUserRepository();
+const createTruckUseCase = new create_user_1.CreateUserUseCase(prismaTruckRepository);
+const userController = new user_controller_1.UserController(createTruckUseCase);
+exports.userController = userController;
