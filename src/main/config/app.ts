@@ -7,25 +7,21 @@ import bodyParser from 'body-parser';
 const app = express();
 
 // Configure CORS
-// Configure CORS
 app.use(cors({
-  origin: [
-      'https://rebbeca-birthday.vercel.app', // Principal domínio
-      'https://rebbeca-birthday-git-main-caio-augusto-da-silva-bragas-projects.vercel.app', // Ambiente de desenvolvimento
-      'https://rebbeca-birthday-e5hutn1pv.vercel.app' // Outro ambiente
-  ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // Permite credenciais (cookies, headers de autorização, etc.)
-}));
+    origin: 'https://rebbeca-birthday.vercel.app', // Specify the front-end origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  }));
+
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://rebbeca-birthday-caio-augusto-da-silva-bragas-projects.vercel.app/"
+    "https://rebbeca-birthday.vercel.app"
   );
   res.header(
     "Access-Control-Allow-Headers",
-    "https://rebbeca-birthday-caio-augusto-da-silva-bragas-projects.vercel.app/"
+    "https://rebbeca-birthday.vercel.app"
   );
   res.header(
     "Access-Control-Allow-Origin",
